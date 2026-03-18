@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoCalc – Commerce International</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="ec-header">
+    <div class="ec-header-content">
+      <h1>EcoCalc</h1>
+      <p>Outil interactif de calcul et de révision en économie internationale</p>
+    </div>
+  </header>
+
+  <main class="ec-main">
+    <!-- 1. Module Ricardo -->
+    <section id="ricardo" class="ec-card">
+      <h2>Module de calcul de Ricardo (Chapitre 02)</h2>
+      <p class="ec-section-intro">
+        Automatisez l’Exercice 3&nbsp;: entrez les heures de travail par unité pour chaque bien et chaque pays.
+        L’outil calcule les coûts d’opportunité et indique la spécialisation recommandée.
+      </p>
+
+      <form id="ricardo-form" class="ec-form" onsubmit="return false;">
+        <div class="ec-form-grid">
+          <div class="ec-form-group">
+            <h3>Sénégal</h3>
+            <label for="sn-poisson">Heures par unité de Poisson</label>
+            <input type="number" id="sn-poisson" min="0" step="0.01" value="40" required />
+
+            <label for="sn-phosphate">Heures par unité de Phosphate</label>
+            <input type="number" id="sn-phosphate" min="0" step="0.01" value="80" required />
+          </div>
+
+          <div class="ec-form-group">
+            <h3>Maroc</h3>
+            <label for="ma-poisson">Heures par unité de Poisson</label>
+            <input type="number" id="ma-poisson" min="0" step="0.01" value="60" required />
+
+            <label for="ma-phosphate">Heures par unité de Phosphate</label>
+            <input type="number" id="ma-phosphate" min="0" step="0.01" value="30" required />
+          </div>
+        </div>
+
+        <button id="btn-calcul-ricardo" type="button" class="ec-button-primary">
+          Calculer les coûts d’opportunité
+        </button>
+      </form>
+
+      <div id="ricardo-resultats" class="ec-results" aria-live="polite"></div>
+    </section>
+
+    <!-- 2. Simulateur de politique commerciale -->
+    <section id="politique" class="ec-card">
+      <h2>Simulateur de politique commerciale (Chapitre 03)</h2>
+      <p class="ec-section-intro">
+        Explorez les principaux instruments de protectionnisme et leur mécanisme à partir de l’Exercice 7.
+        Sélectionnez un instrument pour en voir les effets résumés.
+      </p>
+
+      <div class="ec-form">
+        <label for="instrument-select">Choisissez un instrument :</label>
+        <select id="instrument-select">
+          <option value="">— Sélectionner —</option>
+          <option value="droit_douane">Droit de douane</option>
+          <option value="quotas">Quotas</option>
+          <option value="contenu_local">Contenu local</option>
+          <option value="barriere_admin">Barrière administrative</option>
+        </select>
+      </div>
+
+      <div class="ec-table-wrapper">
+        <table class="ec-table" aria-describedby="instrument-select">
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Mécanisme</th>
+              <th>Coût supporté par…</th>
+              <th>Exemple (étude de cas)</th>
+            </tr>
+          </thead>
+          <tbody id="instrument-tbody">
+            <!-- Rempli dynamiquement par script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Quiz d’auto-évaluation -->
+    <section id="quiz" class="ec-card">
+      <h2>Quiz d’auto-évaluation (Chapitres 01 &amp; 02)</h2>
+      <p class="ec-section-intro">
+        Révisez les notions clés avec des QCM inspirés des exercices 1 et 6.
+        Validez vos réponses et obtenez un feedback immédiat.
+      </p>
+
+      <div id="quiz-container" class="ec-quiz"></div>
+
+      <div class="ec-quiz-actions">
+        <button id="btn-quiz-valider" class="ec-button-primary">Valider mes réponses</button>
+        <button id="btn-quiz-reinitialiser" class="ec-button-secondary">Réinitialiser</button>
+      </div>
+
+      <div id="quiz-feedback-global" class="ec-results" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="ec-footer">
+    <p>EcoCalc – Outil pédagogique d’économie internationale</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
